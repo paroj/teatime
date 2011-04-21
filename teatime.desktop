@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Tea Time
+GenericName=Timer
+Exec=/home/pavel/workspace/teatime/teatime.py
+Icon=/home/pavel/workspace/teatime/teatime.png
+StartupNotify=true
+Categories=GNOME;GTK;
