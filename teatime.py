@@ -2,7 +2,12 @@
 
 import time
 import json
+
+import os.path
+
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango
+
+BASE = os.path.expanduser("~/workspace/teatime/")
 
 class Notification(Notify.Notification):
     def __init__(self):
@@ -67,7 +72,7 @@ class TreeView:
         cell.set_property("text", v)
         
 class ListStore:
-    FILE = "/home/pavel/workspace/teatime/timers.json"
+    FILE = BASE+"timers.json"
     
     def __init__(self, obj):
         self._obj = obj
@@ -106,12 +111,14 @@ class Controller:
         Notify.init("Tea Time")
         
         xml = Gtk.Builder()
-        xml.add_from_file("/home/pavel/workspace/teatime/window.ui")
+        xml.add_from_file(BASE+"window.ui")
         
         self.le = Unity.LauncherEntry.get_for_desktop_file("teatime.desktop")
         
+        self.label = xml.get_object("label1")
+        
         self.start_button = xml.get_object("button1")
-        self.start_button.connect("clicked", self.start)
+        self.start_button.connect("clicked", self.on_button_click)
         
         self.list = TreeView(xml.get_object("treeview1"))
         self.store = ListStore(xml.get_object("liststore1"))
@@ -124,7 +131,18 @@ class Controller:
         self.notification = Notification()
         self.main = GObject.MainLoop()
     
-    def start(self, *a):
+    def on_button_click(self, *a):
+        if self.timer is None:
+            self.start()
+        else:
+            self.stop()
+    
+    def set_label_text(self):
+        name = self.timer.obj["name"]
+        remaining = time.strftime("%M:%S", time.localtime(self.timer.end - time.time()))
+        self.label.set_text("%s: %s remaining" % (name, remaining))
+            
+    def start(self):
         sel = self.list._obj.get_cursor()[0]
         self.timer = Timer(self.store[sel])
         self.timer.start()
@@ -133,10 +151,21 @@ class Controller:
         self.le.set_property("progress_visible", True)
         self.le.set_property("progress", 0)
         
-        self.start_button.set_sensitive(False)
+        self.start_button.set_label("Stop Timer")
         self.list._obj.set_sensitive(False)
-        self.window.iconify()
         
+        self.set_label_text()
+        
+        self.window.iconify()
+    
+    def stop(self):
+        self.le.set_property("urgent", False)
+        self.le.set_property("progress_visible", False)
+        self.start_button.set_label("Start Timer")
+        self.list._obj.set_sensitive(True)
+        self.timer = None
+        self.label.set_text("No Running Timers")
+             
     def run(self):
         self.main.run()        
     
@@ -153,8 +182,13 @@ class Controller:
         GObject.timeout_add_seconds(20, self.show_notification)
         
     def do_tick(self):
+        if self.timer is None:
+            return False # got cancelled
+        
         p = self.timer.get_progress()
         self.le.set_property("progress", min(p, 1))
+        
+        self.set_label_text()
         
         if p >= 1:
             self.start_notification_loop()
@@ -170,10 +204,7 @@ class Controller:
     def window_state_event(self, w, e):
         if e.changed_mask == Gdk.WindowState.ICONIFIED and not self.timer.running:
             self.seen = True
-            self.le.set_property("urgent", False)
-            self.le.set_property("progress_visible", False)
-            self.start_button.set_sensitive(True)
-            self.list._obj.set_sensitive(True)
+            self.stop()
 
 c = Controller()
 c.run()
