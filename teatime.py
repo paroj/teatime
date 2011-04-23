@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 import time
-from gi.repository import Unity, GObject, Gtk, Dbusmenu, Notify, Gdk
+import json
+from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango
 
 class Notification(Notify.Notification):
     def __init__(self):
@@ -18,43 +19,103 @@ class Notification(Notify.Notification):
         else:
             body = "finished %s minutes ago" % time.strftime("%M:%S", time.localtime(elapsed))
             
-        self.update("%s is ready" % timer.obj.title, body, None)
-
-class TimedObject:
-    def __init__(self, title, duration):
-        self.title = title
-        self.duration = duration
+        self.update("%s is ready" % timer.obj["name"], body, None)
 
 class Timer:
     def __init__(self, obj):
         self.obj = obj
+        self.running = False
         self.begin = None
         self.end = None
     
     def start(self):
+        self.running = True
         self.begin = time.time()
-        self.end = self.begin + self.obj.duration
+        self.end = self.begin + self.obj["duration"]
     
     def get_progress(self):
         t = time.time()
-        progress = (t - self.begin)/self.obj.duration
+        progress = (t - self.begin)/self.obj["duration"]
+        
+        self.running = progress < 1
         
         return progress
 
+class TreeView:
+    def __init__(self, obj):
+        self._obj = obj
+        
+        transl = (("name", ("Name")), ("duration", ("Duration")))
+
+        cell = Gtk.CellRendererText()
+        cell.set_property("ellipsize", Pango.EllipsizeMode.END)
+
+        for key, title in transl:
+            col = Gtk.TreeViewColumn(title, cell)
+            col.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
+            col.set_min_width(100)
+            col.set_fixed_width(200)
+            col.set_cell_data_func(cell, self._data_func, key)
+            self._obj.append_column(col)
+
+    def _data_func(self, col, cell, model, itr, key):
+        v = model[itr][0][key]
+        
+        if key == "duration":
+            v = time.strftime("%M:%S", time.localtime(v))
+        
+        cell.set_property("text", v)
+        
+class ListStore:
+    FILE = "/home/pavel/workspace/teatime/timers.json"
+    
+    def __init__(self, obj):
+        self._obj = obj
+        
+        self.load()
+    
+    def load(self):
+        f = file(self.FILE)
+        
+        for t in json.load(f):
+            self.append(t)
+            
+        f.close()
+        
+    def save(self):
+        f = file(self.FILE, "w")
+
+        json.dump([t[0] for t in self._obj], f)
+        
+        f.close()
+        
+    def __getitem__(self, k):
+        return self._obj[k][0]
+    
+    def __setitem__(self, k, v):
+        self._obj[k][0] = v
+    
+    def append(self, v):
+        self._obj.append((v,))
+    
 class Controller:
     def __init__(self):
-        self.seen = True
-        self.timer = Timer(test)
-        
-        self.le = Unity.LauncherEntry.get_for_desktop_file("teatime.desktop")
-        
+        self.seen = None
+        self.timer = None
+                
         Notify.init("Tea Time")
         
         xml = Gtk.Builder()
         xml.add_from_file("/home/pavel/workspace/teatime/window.ui")
         
-        xml.get_object("button1").connect("clicked", self.start)
+        self.le = Unity.LauncherEntry.get_for_desktop_file("teatime.desktop")
         
+        self.start_button = xml.get_object("button1")
+        self.start_button.connect("clicked", self.start)
+        
+        self.list = TreeView(xml.get_object("treeview1"))
+        self.store = ListStore(xml.get_object("liststore1"))
+                
         self.window = xml.get_object("window1")
         self.window.connect("delete-event", self.end)
         self.window.connect("window-state-event", self.window_state_event)
@@ -64,14 +125,18 @@ class Controller:
         self.main = GObject.MainLoop()
     
     def start(self, *a):
+        sel = self.list._obj.get_cursor()[0]
+        self.timer = Timer(self.store[sel])
         self.timer.start()
         GObject.timeout_add_seconds(1, self.do_tick)
         
         self.le.set_property("progress_visible", True)
         self.le.set_property("progress", 0)
         
+        self.start_button.set_sensitive(False)
+        self.list._obj.set_sensitive(False)
         self.window.iconify()
-    
+        
     def run(self):
         self.main.run()        
     
@@ -99,28 +164,16 @@ class Controller:
         return p < 1.0
                
     def end(self, *a):
+        self.store.save()
         self.main.quit()
-    
+        
     def window_state_event(self, w, e):
-        if e.changed_mask == Gdk.WindowState.ICONIFIED and not self.seen:
+        if e.changed_mask == Gdk.WindowState.ICONIFIED and not self.timer.running:
             self.seen = True
             self.le.set_property("urgent", False)
             self.le.set_property("progress_visible", False)
-
-earl_grey = TimedObject("Earl Grey", 3.5*60)
-test = TimedObject("Test", 2)
+            self.start_button.set_sensitive(True)
+            self.list._obj.set_sensitive(True)
 
 c = Controller()
-
-ql = Dbusmenu.Menuitem.new ()
-item1 = Dbusmenu.Menuitem.new ()
-item1.property_set (Dbusmenu.MENUITEM_PROP_LABEL, "Pause")
-item1.property_set_bool (Dbusmenu.MENUITEM_PROP_VISIBLE, True)
-item2 = Dbusmenu.Menuitem.new ()
-item2.property_set (Dbusmenu.MENUITEM_PROP_LABEL, "Restart")
-item2.property_set_bool (Dbusmenu.MENUITEM_PROP_VISIBLE, True)
-ql.child_append (item1)
-ql.child_append (item2)
-c.le.set_property("quicklist", ql)
-
 c.run()
