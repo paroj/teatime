@@ -2,12 +2,20 @@
 
 import time
 import json
+import gettext
 
 import os.path
 
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango
 
-BASE = os.path.expanduser("~/workspace/teatime/")
+gettext.install("teatime")
+
+from xdg.BaseDirectory import xdg_data_home
+
+DATA = os.path.expanduser("~/workspace/teatime/")
+
+if not os.path.exists(DATA):
+    DATA = "/usr/share/teatime/"
 
 class Notification(Notify.Notification):
     def __init__(self):
@@ -47,50 +55,87 @@ class Timer:
         return progress
 
 class TreeView:
-    def __init__(self, obj):
+    def __init__(self, obj, model):
         self._obj = obj
         
-        transl = (("name", ("Name")), ("duration", ("Duration")))
-
-        cell = Gtk.CellRendererText()
-        cell.set_property("ellipsize", Pango.EllipsizeMode.END)
+        self._model = model
+        
+        self._obj.connect("key-press-event", self._on_key_press)
+        
+        transl = (("name", _("Name")), ("duration", _("Duration")))
 
         for key, title in transl:
+            cell = Gtk.CellRendererText()
+            cell.set_property("ellipsize", Pango.EllipsizeMode.END)
+            cell.set_property("editable", True)
+            cell.connect('edited', self._edited_cb, key)
+        
             col = Gtk.TreeViewColumn(title, cell)
             col.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
             col.set_min_width(100)
             col.set_fixed_width(200)
             col.set_cell_data_func(cell, self._data_func, key)
             self._obj.append_column(col)
+    
+    def _on_key_press(self, caller, ev):
+        key = Gdk.keyval_name(ev.keyval)
 
+        if key == "Delete":
+            model, paths = self._obj.get_selection().get_selected_rows()
+            paths = [model.get_iter(p) for p in paths]
+    
+            model.remove(paths[0])
+    
+    def add_addline(self):
+        self._model.append({"name": _("New Entry"), "duration":0})
+    
+    def _edited_cb(self, cell, itr, value, key):
+        if key == "duration":
+            t = time.strptime(value, "%M:%S")
+            value = t.tm_sec + 60*t.tm_min
+            
+        self._model[itr][key] = value
+                
+        last = int(itr) == (len(self._model._obj)-1)
+        
+        if last:
+            self.add_addline()
+    
     def _data_func(self, col, cell, model, itr, key):
         v = model[itr][0][key]
         
         if key == "duration":
             v = time.strftime("%M:%S", time.localtime(v))
         
+        last = int(str(model.get_path(itr))) == (len(model)-1)
+
+        cell.set_property("style", Pango.Style.ITALIC if last else Pango.Style.NORMAL)
+        
         cell.set_property("text", v)
         
 class ListStore:
-    FILE = BASE+"timers.json"
+    FILE = xdg_data_home+"/teatime.js"
     
     def __init__(self, obj):
         self._obj = obj
         
         self.load()
     
-    def load(self):
-        f = file(self.FILE)
-        
-        for t in json.load(f):
-            self.append(t)
+    def load(self):        
+        try:
+            f = file(self.FILE)
             
-        f.close()
-        
+            for t in json.load(f):
+                self.append(t)
+        except:
+            pass
+        else:
+            f.close()
+                
     def save(self):
         f = file(self.FILE, "w")
 
-        json.dump([t[0] for t in self._obj], f)
+        json.dump([t[0] for t in self._obj][0:-1], f)
         
         f.close()
         
@@ -111,7 +156,7 @@ class Controller:
         Notify.init("Tea Time")
         
         xml = Gtk.Builder()
-        xml.add_from_file(BASE+"window.ui")
+        xml.add_from_file(DATA+"window.ui")
         
         self.le = Unity.LauncherEntry.get_for_desktop_file("teatime.desktop")
         
@@ -119,9 +164,10 @@ class Controller:
         
         self.start_button = xml.get_object("button1")
         self.start_button.connect("clicked", self.on_button_click)
-        
-        self.list = TreeView(xml.get_object("treeview1"))
-        self.store = ListStore(xml.get_object("liststore1"))
+
+        self.store = ListStore(xml.get_object("liststore1"))        
+        self.list = TreeView(xml.get_object("treeview1"), self.store)
+        self.list.add_addline()
                 
         self.window = xml.get_object("window1")
         self.window.connect("delete-event", self.end)
@@ -140,7 +186,7 @@ class Controller:
     def set_label_text(self):
         name = self.timer.obj["name"]
         remaining = time.strftime("%M:%S", time.localtime(self.timer.end - time.time()))
-        self.label.set_text("%s: %s remaining" % (name, remaining))
+        self.label.set_text(_("%s: %s remaining") % (name, remaining))
             
     def start(self):
         sel = self.list._obj.get_cursor()[0]
@@ -151,7 +197,7 @@ class Controller:
         self.le.set_property("progress_visible", True)
         self.le.set_property("progress", 0)
         
-        self.start_button.set_label("Stop Timer")
+        self.start_button.set_label(_("Stop Timer"))
         self.list._obj.set_sensitive(False)
         
         self.set_label_text()
@@ -161,10 +207,10 @@ class Controller:
     def stop(self):
         self.le.set_property("urgent", False)
         self.le.set_property("progress_visible", False)
-        self.start_button.set_label("Start Timer")
+        self.start_button.set_label(_("Start Timer"))
         self.list._obj.set_sensitive(True)
         self.timer = None
-        self.label.set_text("No Running Timers")
+        self.label.set_text(_("No Running Timers"))
              
     def run(self):
         self.main.run()        
