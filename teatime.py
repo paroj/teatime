@@ -60,15 +60,13 @@ class TreeView:
         
         self._model = model
         
-        self._obj.connect("key-press-event", self._on_key_press)
-        
         transl = (("name", _("Name")), ("duration", _("Duration")))
 
         for key, title in transl:
             cell = Gtk.CellRendererText()
             cell.set_property("ellipsize", Pango.EllipsizeMode.END)
             cell.set_property("editable", True)
-            cell.connect('edited', self._edited_cb, key)
+            cell.connect("edited", self._edited_cb, key)
         
             col = Gtk.TreeViewColumn(title, cell)
             col.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
@@ -76,16 +74,7 @@ class TreeView:
             col.set_fixed_width(200)
             col.set_cell_data_func(cell, self._data_func, key)
             self._obj.append_column(col)
-    
-    def _on_key_press(self, caller, ev):
-        key = Gdk.keyval_name(ev.keyval)
-
-        if key == "Delete":
-            model, paths = self._obj.get_selection().get_selected_rows()
-            paths = [model.get_iter(p) for p in paths]
-    
-            model.remove(paths[0])
-    
+        
     def add_addline(self):
         self._model.append({"name": _("New Entry"), "duration":0})
     
@@ -180,15 +169,34 @@ class Controller:
 
         self.store = ListStore(xml.get_object("liststore1"))        
         self.list = TreeView(xml.get_object("treeview1"), self.store)
+        self.list._obj.connect("cursor-changed", self.on_sel_changed)
         self.list.add_addline()
                 
         self.window = xml.get_object("window1")
         self.window.connect("delete-event", self.end)
         self.window.connect("window-state-event", self.window_state_event)
+        self.window.connect("key-press-event", self.on_key_press)
         self.window.show()
                         
         self.notification = Notification()
         self.main = GObject.MainLoop()
+
+    def on_key_press(self, caller, ev):
+        key = Gdk.keyval_name(ev.keyval)
+
+        if key == "Delete":
+            # dont allow deleting addline
+            if self.sel == len(self.store._obj) - 1:
+                return
+            
+            itr = self.store._obj.get_iter(self.sel)
+            self.store._obj.remove(itr)
+  
+    def on_sel_changed(self, *a):
+        self.sel = self.list._obj.get_cursor()[0]
+        self.sel = int(str(self.sel))
+        
+        self.start_button.set_sensitive(not (self.sel == len(self.store._obj) - 1))
     
     def on_button_click(self, *a):
         if self.timer is None:
@@ -202,8 +210,7 @@ class Controller:
         self.label.set_text(_("%s: %s remaining") % (name, remaining))
             
     def start(self):
-        sel = self.list._obj.get_cursor()[0]
-        self.timer = Timer(self.store[sel])
+        self.timer = Timer(self.store[self.sel])
         self.timer.start()
         GObject.timeout_add_seconds(1, self.do_tick)
         
