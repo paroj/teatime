@@ -6,6 +6,7 @@ import gettext
 
 import os.path
 
+from validate import Validator
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango
 
 gettext.install("teatime")
@@ -91,7 +92,12 @@ class TreeView:
     
     def _edited_cb(self, cell, itr, value, key):
         if key == "duration":
-            t = time.strptime(value, "%M:%S")
+            
+            try : 
+                t = time.strptime(value, "%M")
+            except : 
+                t = time.strptime(value, "%M.%S")
+                
             value = t.tm_sec + 60*t.tm_min
             
         self._model[itr][key] = value
