@@ -26,13 +26,13 @@ class Notification(Notify.Notification):
         elapsed = time.time() - timer.end
         
         if elapsed < 20:
-            body = "finished just now"
+            body = _("finished just now")
         elif elapsed < 60:
-            body = "finished %s seconds ago" % time.strftime("%S", time.localtime(elapsed))
+            body = _("finished %s seconds ago") % time.strftime("%S", time.localtime(elapsed))
         else:
-            body = "finished %s minutes ago" % time.strftime("%M:%S", time.localtime(elapsed))
+            body = _("finished %s minutes ago") % time.strftime("%M:%S", time.localtime(elapsed))
             
-        self.update("%s is ready" % timer.obj["name"], body, None)
+        self.update(_("%s is ready") % timer.obj["name"], body, None)
 
 class Timer:
     def __init__(self, obj):
