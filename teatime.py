@@ -6,7 +6,6 @@ import gettext
 
 import os.path
 
-from validate import Validator
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango
 
 gettext.install("teatime")
@@ -49,7 +48,7 @@ class Timer:
     
     def get_progress(self):
         t = time.time()
-        progress = (t - self.begin)/self.obj["duration"]
+        progress = (t - self.begin) / self.obj["duration"]
         
         self.running = progress < 1
         
@@ -91,18 +90,26 @@ class TreeView:
         self._model.append({"name": _("New Entry"), "duration":0})
     
     def _edited_cb(self, cell, itr, value, key):
+        # allow different input formats
+        formats = ["%M", "%M:%S", "%M.%S"]
+        
         if key == "duration":
+            t = None
             
-            try : 
-                t = time.strptime(value, "%M")
-            except : 
-                t = time.strptime(value, "%M.%S")
-                
-            value = t.tm_sec + 60*t.tm_min
+            for f in formats:
+                try: 
+                    t = time.strptime(value, f)
+                    break
+                except: 
+                    continue
+            
+            if t is None: return
+            
+            value = t.tm_sec + 60 * t.tm_min
             
         self._model[itr][key] = value
                 
-        last = int(itr) == (len(self._model._obj)-1)
+        last = int(itr) == (len(self._model._obj) - 1)
         
         if last:
             self.add_addline()
@@ -113,14 +120,14 @@ class TreeView:
         if key == "duration":
             v = time.strftime("%M:%S", time.localtime(v))
         
-        last = int(str(model.get_path(itr))) == (len(model)-1)
+        last = int(str(model.get_path(itr))) == (len(model) - 1)
 
         cell.set_property("style", Pango.Style.ITALIC if last else Pango.Style.NORMAL)
         
         cell.set_property("text", v)
         
 class ListStore:
-    FILE = xdg_data_home+"/teatime.js"
+    FILE = xdg_data_home + "/teatime.js"
     
     def __init__(self, obj):
         self._obj = obj
@@ -162,7 +169,7 @@ class Controller:
         Notify.init("Tea Time")
         
         xml = Gtk.Builder()
-        xml.add_from_file(DATA+"window.ui")
+        xml.add_from_file(DATA + "window.ui")
         
         self.le = Unity.LauncherEntry.get_for_desktop_file("teatime.desktop")
         
