@@ -161,7 +161,7 @@ class Controller:
         xml.add_from_file(DATA + "window.ui")
         
         self.le = Unity.LauncherEntry.get_for_desktop_file("teatime.desktop")
-        
+    
         self.label = xml.get_object("label1")
         
         self.start_button = xml.get_object("button1")
@@ -174,7 +174,8 @@ class Controller:
                 
         self.window = xml.get_object("window1")
         self.window.connect("delete-event", self.end)
-        self.window.connect("window-state-event", self.window_state_event)
+        self.window.connect("window-state-event", self.timer_noticed)
+        self.window.connect("focus-in-event", self.timer_noticed)
         self.window.connect("key-press-event", self.on_key_press)
         self.window.show()
                         
@@ -267,8 +268,8 @@ class Controller:
         self.store.save()
         self.main.quit()
         
-    def window_state_event(self, w, e):
-        if e.changed_mask == Gdk.WindowState.ICONIFIED and not self.timer.running:
+    def timer_noticed(self, *a):
+        if self.timer and not self.timer.running:
             self.seen = True
             self.stop()
 
