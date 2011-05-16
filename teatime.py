@@ -3,14 +3,14 @@
 import time
 import json
 import gettext
-
 import os.path
 
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango
-
-gettext.install("teatime")
-
 from xdg.BaseDirectory import xdg_data_home
+
+GETTEXT_DOMAIN = "teatime"
+
+gettext.install(GETTEXT_DOMAIN)
 
 DATA = os.path.expanduser("~/workspace/teatime/")
 
@@ -158,6 +158,7 @@ class Controller:
         Notify.init("Tea Time")
         
         xml = Gtk.Builder()
+        xml.set_translation_domain(GETTEXT_DOMAIN)
         xml.add_from_file(DATA + "window.ui")
         
         self.le = Unity.LauncherEntry.get_for_desktop_file("teatime.desktop")
