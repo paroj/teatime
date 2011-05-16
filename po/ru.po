@@ -1,0 +1,66 @@
+# Russian translation for teatime
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the teatime package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: teatime\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-05-14 13:53+0200\n"
+"PO-Revision-Date: 2011-05-14 14:05+0000\n"
+"Last-Translator: Vitaliy Kulikov <slonua@gmail.com>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-05-16 05:38+0000\n"
+"X-Generator: Launchpad (build 12959)\n"
+
+#: ../teatime.py:29
+msgid "finished just now"
+msgstr "только что закончил"
+
+#: ../teatime.py:31
+#, python-format
+msgid "finished %s seconds ago"
+msgstr "закончил %s  секунд назад"
+
+#: ../teatime.py:33
+#, python-format
+msgid "finished %s minutes ago"
+msgstr "закончил %s  минут назад"
+
+#: ../teatime.py:35
+#, python-format
+msgid "%s is ready"
+msgstr "%s готов"
+
+#: ../teatime.py:65
+msgid "Name"
+msgstr "Название"
+
+#: ../teatime.py:65
+msgid "Duration"
+msgstr "Продолжительность"
+
+#: ../teatime.py:90
+msgid "New Entry"
+msgstr "Новая запись"
+
+#: ../teatime.py:202
+#, python-format
+msgid "%s: %s remaining"
+msgstr "%s: осталось %s"
+
+#: ../teatime.py:213
+msgid "Stop Timer"
+msgstr "Остановить таймер"
+
+#: ../teatime.py:223 ../window.ui.h:2
+msgid "Start Timer"
+msgstr "Запустить таймер"
+
+#: ../teatime.py:226 ../window.ui.h:1
+msgid "No Running Timers"
+msgstr "Нет активных таймеров"
