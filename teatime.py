@@ -4,11 +4,15 @@ import time
 import json
 import gettext
 import os.path
+import subprocess
 
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango
 from xdg.BaseDirectory import xdg_data_home
 
 GETTEXT_DOMAIN = "teatime"
+
+# should use libcanberra, but no python bindings so far..
+SOUND_ALERT_FILE = "/usr/share/sounds/ubuntu/stereo/system-ready.ogg"
 
 gettext.install(GETTEXT_DOMAIN)
 
@@ -241,6 +245,7 @@ class Controller:
         if not self.seen:
             self.notification.set_info(self.timer)
             self.notification.show()
+            subprocess.Popen(["paplay", SOUND_ALERT_FILE])
             
         return not self.seen
     
