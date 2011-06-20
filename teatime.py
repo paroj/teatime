@@ -65,6 +65,7 @@ class TreeView:
         self._obj = obj
         
         self._model = model
+        self.in_edit = False
         
         transl = (("name", _("Name")), ("duration", _("Duration")))
 
@@ -73,6 +74,7 @@ class TreeView:
             cell.set_property("ellipsize", Pango.EllipsizeMode.END)
             cell.set_property("editable", True)
             cell.connect("edited", self._edited_cb, key)
+            cell.connect("editing-started", self._editing_started_cb)
         
             col = Gtk.TreeViewColumn(title, cell)
             col.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
@@ -83,6 +85,9 @@ class TreeView:
         
     def add_addline(self):
         self._model.append({"name": _("New Entry"), "duration":0})
+    
+    def _editing_started_cb(self, *a):
+        self.in_edit = True
     
     def _edited_cb(self, cell, itr, value, key):
         # allow different input formats
@@ -108,6 +113,8 @@ class TreeView:
         
         if last:
             self.add_addline()
+        
+        self.in_edit = False
     
     def _data_func(self, col, cell, model, itr, key):
         v = model[itr][0][key]
@@ -192,7 +199,7 @@ class Controller:
     def on_key_press(self, caller, ev):
         key = Gdk.keyval_name(ev.keyval)
 
-        if key == "Delete":
+        if key == "Delete" and not self.list.in_edit:
             # dont allow deleting addline
             if self.sel == len(self.store._obj) - 1:
                 return
