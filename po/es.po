@@ -1,4 +1,4 @@
-# Ukrainian translation for teatime
+# Spanish translation for teatime
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the teatime package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -8,59 +8,59 @@ msgstr ""
 "Project-Id-Version: teatime\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-05-14 13:53+0200\n"
-"PO-Revision-Date: 2011-05-14 14:06+0000\n"
-"Last-Translator: Vitaliy Kulikov <slonua@gmail.com>\n"
-"Language-Team: Ukrainian <uk@li.org>\n"
+"PO-Revision-Date: 2011-06-17 10:25+0000\n"
+"Last-Translator: Eduardo Riesco <Unknown>\n"
+"Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-06-15 06:04+0000\n"
+"X-Launchpad-Export-Date: 2011-06-18 05:52+0000\n"
 "X-Generator: Launchpad (build 13168)\n"
 
 #: ../teatime.py:29
 msgid "finished just now"
-msgstr "щойно закінчив"
+msgstr "Terminado ahora mismo"
 
 #: ../teatime.py:31
 #, python-format
 msgid "finished %s seconds ago"
-msgstr "закінчив %s секунд тому"
+msgstr "Terminado hace %s segundos"
 
 #: ../teatime.py:33
 #, python-format
 msgid "finished %s minutes ago"
-msgstr "закінчив %s хвилин тому"
+msgstr "Terminado hace %s minutos"
 
 #: ../teatime.py:35
 #, python-format
 msgid "%s is ready"
-msgstr "%s готовий"
+msgstr "%s está listo"
 
 #: ../teatime.py:65
 msgid "Name"
-msgstr "Назва"
+msgstr "Nombre"
 
 #: ../teatime.py:65
 msgid "Duration"
-msgstr "Тривалість"
+msgstr "Duración"
 
 #: ../teatime.py:90
 msgid "New Entry"
-msgstr "Новий запис"
+msgstr "Nueva entrada"
 
 #: ../teatime.py:202
 #, python-format
 msgid "%s: %s remaining"
-msgstr "%s: залишилось %s"
+msgstr "%s: Faltan %s"
 
 #: ../teatime.py:213
 msgid "Stop Timer"
-msgstr "Зупинити таймер"
+msgstr "Parar temporizador"
 
 #: ../teatime.py:223 ../window.ui.h:2
 msgid "Start Timer"
-msgstr "Запустити таймер"
+msgstr "Iniciar temporizador"
 
 #: ../teatime.py:226 ../window.ui.h:1
 msgid "No Running Timers"
-msgstr "Немає активних таймерів"
+msgstr "No hay temporizadores corriendo"
