@@ -14,6 +14,8 @@ GETTEXT_DOMAIN = "teatime"
 # should use libcanberra, but no python bindings so far..
 SOUND_ALERT_FILE = "/usr/share/sounds/ubuntu/stereo/system-ready.ogg"
 
+REMIND_DELTA_SECONDS=30
+
 gettext.install(GETTEXT_DOMAIN)
 
 DATA = os.path.expanduser("~/workspace/teatime/")
@@ -252,7 +254,7 @@ class Controller:
     def start_notification_loop(self):
         self.seen = False
         self.show_notification()
-        GObject.timeout_add_seconds(20, self.show_notification)
+        GObject.timeout_add_seconds(REMIND_DELTA_SECONDS, self.show_notification)
         
     def do_tick(self):
         if self.timer is None:
@@ -279,5 +281,6 @@ class Controller:
             self.seen = True
             self.stop()
 
-c = Controller()
-c.run()
+if __name__ == "__main__":
+    c = Controller()
+    c.run()
