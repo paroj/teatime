@@ -1,3 +1,13 @@
+teatime (11.06-1) natty; urgency=low
+
+  * play sound when timer is finished
+  * increase window size
+  * increase delay between reminders
+  * bug fixes
+  * translation updates
+
+ -- Pavel Rojtberg <pavel@rojtberg.net>  Wed, 22 Jun 2011 12:55:29 +0200
+
 teatime (11.05-1) natty; urgency=low
 
   * Initial release
