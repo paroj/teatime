@@ -7,7 +7,7 @@ setup(
       cmdclass = {"build": build_extra.build_extra,
                   "build_i18n":  build_i18n.build_i18n},
       name = "teatime",
-      version = "11.04",
+      version = "11.10",
       description = "a tea timer",
       author = "Pavel Rojtberg",
       author_email = "pavel@rojtberg.net",
