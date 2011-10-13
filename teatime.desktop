@@ -4,6 +4,6 @@ Type=Application
 Name=Tea Time
 GenericName=Timer
 Exec=teatime.py
-Icon=/usr/share/icons/gnome/48x48/actions/appointment.png
+Icon=/usr/share/icons/Humanity/actions/48/sleep.svg
 StartupNotify=true
 Categories=GNOME;GTK;
