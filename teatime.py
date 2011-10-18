@@ -106,6 +106,8 @@ class TreeView:
             if t is None: return
             
             value = t.tm_sec + 60 * t.tm_min
+        else:
+            value = unicode(value) # for consistency, obsolete in python3
             
         self._model[itr][key] = value
                 
@@ -220,7 +222,7 @@ class Controller:
     def set_label_text(self):
         name = self.timer.obj["name"]
         remaining = time.strftime("%M:%S", time.localtime(self.timer.end - time.time()))
-        self.label.set_text(_("%s: %s remaining") % (name, remaining))
+        self.label.set_text((_(u"%s: %s remaining") % (name, remaining)).encode("utf-8")) # FIXME remove conversion to 8bit string
             
     def start(self):
         self.timer = Timer(self.store[self.sel])
