@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-14 13:53+0200\n"
+"POT-Creation-Date: 2011-10-23 00:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../teatime.py:29
+#: ../teatime.py:35
 msgid "finished just now"
 msgstr ""
 
-#: ../teatime.py:31
+#: ../teatime.py:37
 #, python-format
 msgid "finished %s seconds ago"
 msgstr ""
 
-#: ../teatime.py:33
+#: ../teatime.py:39
 #, python-format
 msgid "finished %s minutes ago"
 msgstr ""
 
-#: ../teatime.py:35
+#: ../teatime.py:41
 #, python-format
 msgid "%s is ready"
 msgstr ""
 
-#: ../teatime.py:65
+#: ../teatime.py:70
 msgid "Name"
 msgstr ""
 
-#: ../teatime.py:65
+#: ../teatime.py:70
 msgid "Duration"
 msgstr ""
 
-#: ../teatime.py:90
+#: ../teatime.py:87
 msgid "New Entry"
 msgstr ""
 
-#: ../teatime.py:202
+#: ../teatime.py:225
 #, python-format
 msgid "%s: %s remaining"
 msgstr ""
 
-#: ../teatime.py:213
+#: ../teatime.py:235
 msgid "Stop Timer"
 msgstr ""
 
-#: ../teatime.py:223 ../window.ui.h:2
+#: ../teatime.py:245 ../window.ui.h:2
 msgid "Start Timer"
 msgstr ""
 
-#: ../teatime.py:226 ../window.ui.h:1
+#: ../teatime.py:248 ../window.ui.h:1
 msgid "No Running Timers"
 msgstr ""

@@ -6,4 +6,4 @@ GenericName=Timer
 Exec=teatime.py
 Icon=/usr/share/icons/Humanity/actions/48/sleep.svg
 StartupNotify=true
-Categories=GNOME;GTK;
+Categories=Utility;GTK;
