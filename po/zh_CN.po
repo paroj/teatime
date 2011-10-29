@@ -1,0 +1,66 @@
+# Chinese (Simplified) translation for teatime
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the teatime package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: teatime\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-10-23 00:56+0200\n"
+"PO-Revision-Date: 2011-10-29 02:48+0000\n"
+"Last-Translator: iSingle <river.dolphin@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-10-29 05:33+0000\n"
+"X-Generator: Launchpad (build 14197)\n"
+
+#: ../teatime.py:35
+msgid "finished just now"
+msgstr "已完成"
+
+#: ../teatime.py:37
+#, python-format
+msgid "finished %s seconds ago"
+msgstr "%s 秒前完成"
+
+#: ../teatime.py:39
+#, python-format
+msgid "finished %s minutes ago"
+msgstr "%s 分钟前完成"
+
+#: ../teatime.py:41
+#, python-format
+msgid "%s is ready"
+msgstr "%s 已准备好"
+
+#: ../teatime.py:70
+msgid "Name"
+msgstr "名称"
+
+#: ../teatime.py:70
+msgid "Duration"
+msgstr "耗时"
+
+#: ../teatime.py:87
+msgid "New Entry"
+msgstr "新条目"
+
+#: ../teatime.py:225
+#, python-format
+msgid "%s: %s remaining"
+msgstr "需等待 %s: %s"
+
+#: ../teatime.py:235
+msgid "Stop Timer"
+msgstr "停止计时"
+
+#: ../teatime.py:245 ../window.ui.h:2
+msgid "Start Timer"
+msgstr "启动定时器"
+
+#: ../teatime.py:248 ../window.ui.h:1
+msgid "No Running Timers"
+msgstr "没有正在运行的计时器"
