@@ -1,4 +1,4 @@
-# Chinese (Simplified) translation for teatime
+# Brazilian Portuguese translation for teatime
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the teatime package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: teatime\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-10-23 00:56+0200\n"
-"PO-Revision-Date: 2011-10-29 02:48+0000\n"
-"Last-Translator: iSingle <river.dolphin@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"PO-Revision-Date: 2011-10-29 17:56+0000\n"
+"Last-Translator: Fabiano Bovo <bovo.fabiano@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,48 +19,48 @@ msgstr ""
 
 #: ../teatime.py:35
 msgid "finished just now"
-msgstr "已完成"
+msgstr "Finalizado"
 
 #: ../teatime.py:37
 #, python-format
 msgid "finished %s seconds ago"
-msgstr "%s 秒前完成"
+msgstr "Finalizado há %s segundos"
 
 #: ../teatime.py:39
 #, python-format
 msgid "finished %s minutes ago"
-msgstr "%s 分钟前完成"
+msgstr "Finalizado há %s minutos"
 
 #: ../teatime.py:41
 #, python-format
 msgid "%s is ready"
-msgstr "%s 已准备好"
+msgstr "%s concluído"
 
 #: ../teatime.py:70
 msgid "Name"
-msgstr "名称"
+msgstr "Nome"
 
 #: ../teatime.py:70
 msgid "Duration"
-msgstr "耗时"
+msgstr "Duração"
 
 #: ../teatime.py:87
 msgid "New Entry"
-msgstr "新条目"
+msgstr "Novo registro"
 
 #: ../teatime.py:225
 #, python-format
 msgid "%s: %s remaining"
-msgstr "需等待 %s: %s"
+msgstr "%s: %s restando"
 
 #: ../teatime.py:235
 msgid "Stop Timer"
-msgstr "停止计时"
+msgstr "Parar"
 
 #: ../teatime.py:245 ../window.ui.h:2
 msgid "Start Timer"
-msgstr "启动定时器"
+msgstr "Iniciar"
 
 #: ../teatime.py:248 ../window.ui.h:1
 msgid "No Running Timers"
-msgstr "没有正在运行的计时器"
+msgstr "Sem registros"
