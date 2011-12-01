@@ -1,0 +1,66 @@
+# Greek translation for teatime
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the teatime package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: teatime\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-10-23 00:56+0200\n"
+"PO-Revision-Date: 2011-12-01 02:15+0000\n"
+"Last-Translator: vkou <vkouts77@otenet.gr>\n"
+"Language-Team: Greek <el@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-12-01 05:55+0000\n"
+"X-Generator: Launchpad (build 14414)\n"
+
+#: ../teatime.py:35
+msgid "finished just now"
+msgstr ""
+
+#: ../teatime.py:37
+#, python-format
+msgid "finished %s seconds ago"
+msgstr ""
+
+#: ../teatime.py:39
+#, python-format
+msgid "finished %s minutes ago"
+msgstr ""
+
+#: ../teatime.py:41
+#, python-format
+msgid "%s is ready"
+msgstr ""
+
+#: ../teatime.py:70
+msgid "Name"
+msgstr "Όνομα"
+
+#: ../teatime.py:70
+msgid "Duration"
+msgstr "Διάρκεια"
+
+#: ../teatime.py:87
+msgid "New Entry"
+msgstr "Νέα καταχώριση"
+
+#: ../teatime.py:225
+#, python-format
+msgid "%s: %s remaining"
+msgstr ""
+
+#: ../teatime.py:235
+msgid "Stop Timer"
+msgstr ""
+
+#: ../teatime.py:245 ../window.ui.h:2
+msgid "Start Timer"
+msgstr "Εκκίνηση χρονομέτρου"
+
+#: ../teatime.py:248 ../window.ui.h:1
+msgid "No Running Timers"
+msgstr ""
