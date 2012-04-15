@@ -13,4 +13,4 @@ Recommends: python-appindicator
 Description: simple egg timer for the unity desktop
  A simple egg-timer type application to time your teas. 
  Rings an alarm and displays an desktop notification, when the tea is ready. 
- Supports saving several pre-sets.
+ Supports saving several pre-set timers.
