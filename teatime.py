@@ -167,6 +167,8 @@ class Controller:
     def __init__(self):
         self.seen = None
         self.timer = None
+        self.notify_src = None
+        self.tick_src = None
                 
         Notify.init("Tea Time")
         
@@ -227,7 +229,7 @@ class Controller:
     def start(self):
         self.timer = Timer(self.store[self.sel])
         self.timer.start()
-        GObject.timeout_add_seconds(1, self.do_tick)
+        self.tick_src = GObject.timeout_add_seconds(1, self.do_tick)
         
         self.le.set_property("progress_visible", True)
         self.le.set_property("progress", 0)
@@ -246,6 +248,14 @@ class Controller:
         self.list._obj.set_sensitive(True)
         self.timer = None
         self.label.set_text(_("No Running Timers"))
+        
+        if self.tick_src is not None:
+            GObject.source_remove(self.tick_src)
+            self.tick_src = None
+            
+        if self.notify_src is not None:
+            GObject.source_remove(self.notify_src)
+            self.notify_src = None
              
     def run(self):
         self.main.run()        
@@ -261,12 +271,9 @@ class Controller:
     def start_notification_loop(self):
         self.seen = False
         self.show_notification()
-        GObject.timeout_add_seconds(REMIND_DELTA_SECONDS, self.show_notification)
+        self.notify_src = GObject.timeout_add_seconds(REMIND_DELTA_SECONDS, self.show_notification)
         
-    def do_tick(self):
-        if self.timer is None:
-            return False # got cancelled
-        
+    def do_tick(self):        
         p = self.timer.get_progress()
         self.le.set_property("progress", min(p, 1))
         
