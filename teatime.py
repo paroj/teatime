@@ -294,6 +294,7 @@ class Controller:
         return p < 1.0
                
     def end(self, *a):
+        self.stop()
         self.store.save()
         self.main.quit()
         
