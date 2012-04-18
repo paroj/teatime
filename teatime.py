@@ -91,7 +91,7 @@ class TreeView:
     
     def _edited_cb(self, cell, itr, value, key):
         # allow different input formats
-        formats = ["%M", "%M:%S", "%M.%S"]
+        formats = ["%M", "%M:%S", "%M.%S", "%H:%M:%S"]
         
         if key == "duration":
             t = None
@@ -105,7 +105,7 @@ class TreeView:
             
             if t is None: return
             
-            value = t.tm_sec + 60 * t.tm_min
+            value = t.tm_sec + 60 * t.tm_min + 60*60 * t.tm_hour
         else:
             value = value.decode("utf-8") # for consistency, obsolete in python3??
             
@@ -120,7 +120,10 @@ class TreeView:
         v = model[itr][0][key]
         
         if key == "duration":
-            v = time.strftime("%M:%S", time.localtime(v))
+            if v >= 60*60:
+                v = time.strftime("%H:%M:%S", time.gmtime(v))
+            else:
+                v = time.strftime("%M:%S", time.gmtime(v))
         
         last = int(str(model.get_path(itr))) == (len(model) - 1)
 
@@ -223,7 +226,11 @@ class Controller:
     
     def set_label_text(self):
         name = self.timer.obj["name"].encode("utf-8") # FIXME remove conversion to 8bit string
-        remaining = time.strftime("%M:%S", time.localtime(self.timer.end - time.time()))
+        
+        t = time.gmtime(self.timer.end - time.time())
+        f = "%H:%M:%S" if t.tm_hour > 0 else "%M:%S"
+            
+        remaining = time.strftime(f, t)
         self.label.set_text(_("%s: %s remaining") % (name, remaining)) 
             
     def start(self):

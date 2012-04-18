@@ -1,3 +1,11 @@
+teatime (11.10-2) oneiric; urgency=low
+
+  * allow setting timers > 1h
+  * bug fixes
+  * translation updates
+
+ -- Pavel Rojtberg <pavel@rojtberg.net>  Sat, 15 Oct 2011 22:20:34 +0200
+
 teatime (11.10-1) oneiric; urgency=low
 
   * add workarounds for oneiric
