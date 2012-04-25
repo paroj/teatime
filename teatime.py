@@ -179,6 +179,10 @@ class Controller:
         xml.set_translation_domain(GETTEXT_DOMAIN)
         xml.add_from_file(DATA + "window.ui")
         
+        xml.connect_signals({"hide-widget": lambda w, *args: w.hide_on_delete()})
+        about = xml.get_object("aboutdialog1")
+        xml.get_object("menuitem_about").connect("activate", lambda *args: about.show())
+        
         self.le = Unity.LauncherEntry.get_for_desktop_file("teatime.desktop")
     
         self.label = xml.get_object("label1")
@@ -214,6 +218,11 @@ class Controller:
   
     def on_sel_changed(self, *a):
         self.sel = self.list._obj.get_cursor()[0]
+        
+        if self.sel is None:
+            # happens on delete?
+            return
+        
         self.sel = int(str(self.sel))
         
         self.start_button.set_sensitive(not (self.sel == len(self.store._obj) - 1))
