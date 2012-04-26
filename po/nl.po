@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teatime\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-10-23 00:56+0200\n"
-"PO-Revision-Date: 2011-11-05 15:42+0000\n"
-"Last-Translator: Willem Sonke <Unknown>\n"
+"POT-Creation-Date: 2012-04-25 20:06+0200\n"
+"PO-Revision-Date: 2012-04-25 18:12+0000\n"
+"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-06 05:36+0000\n"
-"X-Generator: Launchpad (build 14231)\n"
+"X-Launchpad-Export-Date: 2012-04-26 05:03+0000\n"
+"X-Generator: Launchpad (build 15149)\n"
 
 #: ../teatime.py:35
 msgid "finished just now"
@@ -48,19 +48,34 @@ msgstr "Tijdsduur"
 msgid "New Entry"
 msgstr "Nieuw item"
 
-#: ../teatime.py:225
+#: ../teatime.py:243
 #, python-format
 msgid "%s: %s remaining"
 msgstr "%s: %s resterende"
 
-#: ../teatime.py:235
+#: ../teatime.py:253
 msgid "Stop Timer"
 msgstr "Stop timer"
 
-#: ../teatime.py:245 ../window.ui.h:2
+#: ../teatime.py:263 ../window.ui.h:5
 msgid "Start Timer"
 msgstr "Start timer"
 
-#: ../teatime.py:248 ../window.ui.h:1
+#: ../teatime.py:266 ../window.ui.h:4
 msgid "No Running Timers"
 msgstr "Geen lopende timers"
+
+#: ../window.ui.h:1
+msgid "A simple egg timer application for the Unity Desktop"
+msgstr ""
+
+#: ../window.ui.h:2
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Guus https://launchpad.net/~guus-verbeek\n"
+"  Willem Sonke https://launchpad.net/~willem-sonke"
+
+#: ../window.ui.h:3
+msgid "_Tea Time"
+msgstr ""
