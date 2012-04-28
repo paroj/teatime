@@ -1,3 +1,12 @@
+teatime (12.04-1) precise; urgency=low
+
+  * allow setting timers > 1h
+  * add about menu
+  * bug fixes
+  * translation updates
+
+ -- Pavel Rojtberg <pavel@rojtberg.net>  Sat, 28 Apr 2012 11:43:36 +0200
+
 teatime (11.10-2) oneiric; urgency=low
 
   * allow setting timers > 1h
