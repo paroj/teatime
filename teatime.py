@@ -6,8 +6,7 @@ import gettext
 import os.path
 import subprocess
 
-from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango
-from xdg.BaseDirectory import xdg_data_home
+from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango, GLib
 
 GETTEXT_DOMAIN = "teatime"
 
@@ -132,7 +131,7 @@ class TreeView:
         cell.set_property("text", v)
         
 class ListStore:
-    FILE = xdg_data_home + "/teatime.js"
+    FILE = GLib.get_user_data_dir() + "/teatime.js"
     
     def __init__(self, obj):
         self._obj = obj

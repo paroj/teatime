@@ -8,9 +8,9 @@ Homepage: http://www.rojtberg.net/
 
 Package: teatime-unity
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}, python (>= 2.6), python-xdg, gir1.2-unity-3.0 | gir1.2-unity-4.0 | gir1.2-unity-5.0, gir1.2-gtk-2.0 | gir1.2-gtk-3.0, gir1.2-notify-0.7, gir1.2-gdkpixbuf-2.0, pulseaudio-utils, ubuntu-sounds
+Depends: ${python:Depends}, ${misc:Depends}, python (>= 2.6), gir1.2-unity-3.0 | gir1.2-unity-4.0 | gir1.2-unity-5.0, gir1.2-gtk-2.0 | gir1.2-gtk-3.0, gir1.2-notify-0.7, gir1.2-gdkpixbuf-2.0, pulseaudio-utils, ubuntu-sounds
 Recommends: python-appindicator
-Description: simple egg timer for the unity desktop
+Description: A simple egg timer application for the Unity Desktop
  A simple egg-timer type application to time your teas. 
  Rings an alarm and displays an desktop notification, when the tea is ready. 
  Supports saving several pre-set timers.
