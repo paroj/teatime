@@ -1,3 +1,11 @@
+teatime-unity (12.06-1) precise; urgency=low
+
+  * comply with app submission guidelines:
+    - move to /opt/
+    - change source package name
+
+ -- Pavel Rojtberg <pavel@rojtberg.net>  Thu, 21 Jun 2012 11:57:38 +0200
+
 teatime (12.04-1) precise; urgency=low
 
   * allow setting timers > 1h

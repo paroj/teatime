@@ -2,9 +2,12 @@
 
 import time
 import json
-import gettext
+import locale
 import os.path
 import subprocess
+
+
+
 
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango, GLib
 
@@ -15,12 +18,15 @@ SOUND_ALERT_FILE = "/usr/share/sounds/ubuntu/stereo/system-ready.ogg"
 
 REMIND_DELTA_SECONDS=30
 
-gettext.install(GETTEXT_DOMAIN)
-
-DATA = os.path.expanduser("~/workspace/teatime/")
+DATA = ""#os.path.expanduser("~/workspace/teatime/")
 
 if not os.path.exists(DATA):
-    DATA = "/usr/share/teatime/"
+    DATA = "/opt/extras.ubuntu.com/teatime/"
+
+# use locale instead of gettext, so GTK gets the change
+locale.bindtextdomain(GETTEXT_DOMAIN, DATA+"locale/")
+locale.textdomain(GETTEXT_DOMAIN)
+_ = locale.gettext
 
 class Notification(Notify.Notification):
     def __init__(self):
