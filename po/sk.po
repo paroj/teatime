@@ -1,16 +1,16 @@
-# Czech translation for teatime
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Slovak translation for teatime
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the teatime package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: teatime\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-21 12:03+0200\n"
-"PO-Revision-Date: 2012-07-06 07:54+0000\n"
+"PO-Revision-Date: 2012-07-06 08:15+0000\n"
 "Last-Translator: Ján Neščivera <jan.nescivera@gmail.com>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,30 +19,30 @@ msgstr ""
 
 #: ../teatime.py:40
 msgid "finished just now"
-msgstr "právě dokončeno"
+msgstr "práve ukončené"
 
 #: ../teatime.py:42
 #, python-format
 msgid "finished %s seconds ago"
-msgstr "dokončeno před %s sekundami"
+msgstr "ukončené pred %s sekundami"
 
 #: ../teatime.py:44
 #, python-format
 msgid "finished %s minutes ago"
-msgstr "dokončeno před %s minutami"
+msgstr "ukončené pred %s minútami"
 
 #: ../teatime.py:46
 #, python-format
 msgid "%s is ready"
-msgstr ""
+msgstr "%s je pripravený"
 
 #: ../teatime.py:75
 msgid "Name"
-msgstr "Název"
+msgstr "Názov"
 
 #: ../teatime.py:75
 msgid "Duration"
-msgstr "Doba trvání"
+msgstr "Trvanie"
 
 #: ../teatime.py:92
 msgid "New Entry"
@@ -51,19 +51,19 @@ msgstr "Nová položka"
 #: ../teatime.py:248
 #, python-format
 msgid "%s: %s remaining"
-msgstr "zbýva %s: %s"
+msgstr "zostáva %s: %s"
 
 #: ../teatime.py:258
 msgid "Stop Timer"
-msgstr "Zastavit časovač"
+msgstr "Zastaviť Časovač"
 
 #: ../teatime.py:268 ../window.ui.h:4
 msgid "Start Timer"
-msgstr "Spustit časovač"
+msgstr "Spustiť Časovač"
 
 #: ../teatime.py:271 ../window.ui.h:3
 msgid "No Running Timers"
-msgstr "Žadné zapnuté časovače"
+msgstr "Žiadne bežiace časovače"
 
 #: ../window.ui.h:1
 msgid "A simple egg timer application for the Unity Desktop"
@@ -73,5 +73,4 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Ján Neščivera https://launchpad.net/~yohny\n"
-"  Stanisław Gackowski https://launchpad.net/~soeb"
+"  Ján Neščivera https://launchpad.net/~yohny"
