@@ -1,16 +1,16 @@
-# Brazilian Portuguese translation for teatime
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# French translation for teatime
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the teatime package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: teatime\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-21 12:03+0200\n"
-"PO-Revision-Date: 2012-07-18 14:19+0000\n"
-"Last-Translator: Fabiano Bovo <bovo.fabiano@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"PO-Revision-Date: 2012-07-18 14:38+0000\n"
+"Last-Translator: Niccola <Unknown>\n"
+"Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,59 +19,58 @@ msgstr ""
 
 #: ../teatime.py:40
 msgid "finished just now"
-msgstr "Finalizado"
+msgstr "Terminé en ce moment"
 
 #: ../teatime.py:42
 #, python-format
 msgid "finished %s seconds ago"
-msgstr "Finalizado há %s segundos"
+msgstr "Terminé il y a %s secondes"
 
 #: ../teatime.py:44
 #, python-format
 msgid "finished %s minutes ago"
-msgstr "Finalizado há %s minutos"
+msgstr "Terminé il y a %s minutes"
 
 #: ../teatime.py:46
 #, python-format
 msgid "%s is ready"
-msgstr "%s está pronto"
+msgstr "%s est prêt"
 
 #: ../teatime.py:75
 msgid "Name"
-msgstr "Nome"
+msgstr "Nom"
 
 #: ../teatime.py:75
 msgid "Duration"
-msgstr "Duração"
+msgstr "Duration"
 
 #: ../teatime.py:92
 msgid "New Entry"
-msgstr "Novo registro"
+msgstr "Ajouter un enregistrement"
 
 #: ../teatime.py:248
 #, python-format
 msgid "%s: %s remaining"
-msgstr "%s: %s restando"
+msgstr "%s: %s restant"
 
 #: ../teatime.py:258
 msgid "Stop Timer"
-msgstr "Parar"
+msgstr "Arrêter"
 
 #: ../teatime.py:268 ../window.ui.h:4
 msgid "Start Timer"
-msgstr "Iniciar"
+msgstr "Démarrer"
 
 #: ../teatime.py:271 ../window.ui.h:3
 msgid "No Running Timers"
-msgstr "Sem registros"
+msgstr "Pas de enregistrements"
 
 #: ../window.ui.h:1
 msgid "A simple egg timer application for the Unity Desktop"
-msgstr "Um simples programa temporizador de cozinha para Unity Desktop"
+msgstr "Une application rappel de cuisine simple pour le Unity Desktop"
 
 #: ../window.ui.h:2
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Fabiano Bovo https://launchpad.net/~bovo-fabiano\n"
 "  Niccola https://launchpad.net/~niccolatorres"
