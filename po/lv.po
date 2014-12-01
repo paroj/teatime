@@ -1,77 +1,76 @@
-# English (United Kingdom) translation for teatime
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Latvian translation for teatime
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
 # This file is distributed under the same license as the teatime package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: teatime\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-21 12:03+0200\n"
-"PO-Revision-Date: 2012-09-19 11:35+0000\n"
-"Last-Translator: Biffaboy <Unknown>\n"
-"Language-Team: English (United Kingdom) <en_GB@li.org>\n"
+"PO-Revision-Date: 2013-01-22 11:53+0000\n"
+"Last-Translator: tuxmaniack <Unknown>\n"
+"Language-Team: Latvian <lv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-20 04:54+0000\n"
-"X-Generator: Launchpad (build 15985)\n"
+"X-Launchpad-Export-Date: 2013-01-23 05:33+0000\n"
+"X-Generator: Launchpad (build 16441)\n"
 
 #: ../teatime.py:40
 msgid "finished just now"
-msgstr "finished just now"
+msgstr "tikko pabeidza"
 
 #: ../teatime.py:42
 #, python-format
 msgid "finished %s seconds ago"
-msgstr "finished %s seconds ago"
+msgstr "pabeidza pirms %s sekundēm"
 
 #: ../teatime.py:44
 #, python-format
 msgid "finished %s minutes ago"
-msgstr "finished %s minutes ago"
+msgstr "pabeidza pirms %s minūtēm"
 
 #: ../teatime.py:46
 #, python-format
 msgid "%s is ready"
-msgstr "%s is ready"
+msgstr "%s ir gatavs"
 
 #: ../teatime.py:75
 msgid "Name"
-msgstr "Name"
+msgstr "Nosaukums"
 
 #: ../teatime.py:75
 msgid "Duration"
-msgstr "Duration"
+msgstr "Ilgums"
 
 #: ../teatime.py:92
 msgid "New Entry"
-msgstr "New Entry"
+msgstr "Jauns ieraksts"
 
 #: ../teatime.py:248
 #, python-format
 msgid "%s: %s remaining"
-msgstr "%s: %s remaining"
+msgstr "%s: %s atlicis"
 
 #: ../teatime.py:258
 msgid "Stop Timer"
-msgstr "Stop Timer"
+msgstr "Apturēt taimeri"
 
 #: ../teatime.py:268 ../window.ui.h:4
 msgid "Start Timer"
-msgstr "Start Timer"
+msgstr "Sākt taimeri"
 
 #: ../teatime.py:271 ../window.ui.h:3
 msgid "No Running Timers"
-msgstr "No Running Timers"
+msgstr "Nav ieslēgtu taimeru"
 
 #: ../window.ui.h:1
 msgid "A simple egg timer application for the Unity Desktop"
-msgstr "A simple egg timer application for the Unity Desktop"
+msgstr "Vienkāršs atpakaļatskaites taimeris Unity darbvirsmai"
 
 #: ../window.ui.h:2
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Biffaboy https://launchpad.net/~curtisbull\n"
-"  gogo https://launchpad.net/~trebelnik-stefina"
+"  tuxmaniack https://launchpad.net/~tuxmaniack"

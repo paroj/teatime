@@ -7,63 +7,63 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teatime\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-04-26 11:55+0200\n"
-"PO-Revision-Date: 2012-04-25 18:12+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"POT-Creation-Date: 2012-06-21 12:03+0200\n"
+"PO-Revision-Date: 2012-07-06 07:54+0000\n"
+"Last-Translator: Ján Neščivera <jan.nescivera@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-27 04:54+0000\n"
-"X-Generator: Launchpad (build 15149)\n"
+"X-Launchpad-Export-Date: 2012-07-07 05:39+0000\n"
+"X-Generator: Launchpad (build 15558)\n"
 
-#: ../teatime.py:35
+#: ../teatime.py:40
 msgid "finished just now"
-msgstr ""
+msgstr "právě dokončeno"
 
-#: ../teatime.py:37
+#: ../teatime.py:42
 #, python-format
 msgid "finished %s seconds ago"
-msgstr ""
+msgstr "dokončeno před %s sekundami"
 
-#: ../teatime.py:39
+#: ../teatime.py:44
 #, python-format
 msgid "finished %s minutes ago"
-msgstr ""
+msgstr "dokončeno před %s minutami"
 
-#: ../teatime.py:41
+#: ../teatime.py:46
 #, python-format
 msgid "%s is ready"
 msgstr ""
 
-#: ../teatime.py:70
+#: ../teatime.py:75
 msgid "Name"
 msgstr "Název"
 
-#: ../teatime.py:70
+#: ../teatime.py:75
 msgid "Duration"
 msgstr "Doba trvání"
 
-#: ../teatime.py:87
+#: ../teatime.py:92
 msgid "New Entry"
 msgstr "Nová položka"
 
-#: ../teatime.py:243
+#: ../teatime.py:248
 #, python-format
 msgid "%s: %s remaining"
-msgstr ""
+msgstr "zbýva %s: %s"
 
-#: ../teatime.py:253
+#: ../teatime.py:258
 msgid "Stop Timer"
-msgstr ""
+msgstr "Zastavit časovač"
 
-#: ../teatime.py:263 ../window.ui.h:4
+#: ../teatime.py:268 ../window.ui.h:4
 msgid "Start Timer"
-msgstr ""
+msgstr "Spustit časovač"
 
-#: ../teatime.py:266 ../window.ui.h:3
+#: ../teatime.py:271 ../window.ui.h:3
 msgid "No Running Timers"
-msgstr ""
+msgstr "Žadné zapnuté časovače"
 
 #: ../window.ui.h:1
 msgid "A simple egg timer application for the Unity Desktop"
@@ -73,4 +73,5 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Ján Neščivera https://launchpad.net/~yohny\n"
 "  Stanisław Gackowski https://launchpad.net/~soeb"
