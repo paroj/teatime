@@ -1,3 +1,10 @@
+teatime-unity (14.11-1) trusty; urgency=low
+
+  * port to python3
+  * update ui to gtk 3.10
+
+ -- Pavel Rojtberg <pavel@rojtberg.net>  Mon, 01 Dec 2014 14:13:52 +0100
+
 teatime-unity (12.06-1) precise; urgency=low
 
   * comply with app submission guidelines:
