@@ -1,9 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import time
 import json
 import locale
-import os.path
 import subprocess
 
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango, GLib
@@ -11,14 +10,12 @@ from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango, GLib
 GETTEXT_DOMAIN = "teatime"
 
 # should use libcanberra, but no python bindings so far..
-SOUND_ALERT_FILE = "/usr/share/sounds/ubuntu/stereo/system-ready.ogg"
+SOUND_ALERT_FILE = "/usr/share/sounds/freedesktop/stereo/complete.oga"
 
 REMIND_DELTA_SECONDS=30
 
-DATA = ""#os.path.expanduser("~/workspace/teatime/")
-
-if not os.path.exists(DATA):
-    DATA = "/opt/extras.ubuntu.com/teatime/"
+#DATA = os.path.expanduser("~/workspace/teatime/")
+DATA = "/opt/extras.ubuntu.com/teatime/"
 
 # use locale instead of gettext, so GTK gets the change
 locale.bindtextdomain(GETTEXT_DOMAIN, DATA+"locale/")
