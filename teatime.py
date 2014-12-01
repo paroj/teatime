@@ -6,9 +6,6 @@ import locale
 import os.path
 import subprocess
 
-
-
-
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango, GLib
 
 GETTEXT_DOMAIN = "teatime"
@@ -112,7 +109,7 @@ class TreeView:
             
             value = t.tm_sec + 60 * t.tm_min + 60*60 * t.tm_hour
         else:
-            value = value.decode("utf-8") # for consistency, obsolete in python3??
+            value = value#.decode("utf-8") # for consistency, obsolete in python3??
             
         self._model[itr][key] = value
                 
@@ -146,7 +143,7 @@ class ListStore:
     
     def load(self):        
         try:
-            f = file(self.FILE)
+            f = open(self.FILE)
             
             for t in json.load(f):
                 self.append(t)
@@ -156,7 +153,7 @@ class ListStore:
             f.close()
                 
     def save(self):
-        f = file(self.FILE, "w")
+        f = open(self.FILE, "w")
 
         json.dump([t[0] for t in self._obj][0:-1], f)
         
