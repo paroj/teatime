@@ -1,8 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Tea Time
 GenericName=Timer
+Keywords=egg;
 Exec=/opt/extras.ubuntu.com/teatime/teatime.py
 Path=/opt/extras.ubuntu.com/teatime/
 Icon=/usr/share/icons/Humanity/actions/48/sleep.svg
