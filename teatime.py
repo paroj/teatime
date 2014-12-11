@@ -15,7 +15,7 @@ SOUND_ALERT_FILE = "/usr/share/sounds/freedesktop/stereo/complete.oga"
 REMIND_DELTA_SECONDS=30
 
 #DATA = os.path.expanduser("~/workspace/teatime/")
-DATA = "/opt/extras.ubuntu.com/teatime/"
+DATA = "/usr/share/teatime/"
 
 # use locale instead of gettext, so GTK gets the change
 locale.bindtextdomain(GETTEXT_DOMAIN, DATA+"locale/")
