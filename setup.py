@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from distutils.core import setup
 from DistUtilsExtra.command import *
@@ -17,7 +17,7 @@ setup(
       cmdclass = {"build": build_extra.build_extra,
                   "build_i18n": my_build_i18n},
       name = "teatime",
-      version = "12.06",
+      version = "14.11",
       description = "A simple egg timer application for the Unity Desktop",
       author = "Pavel Rojtberg",
       author_email = "pavel@rojtberg.net",
