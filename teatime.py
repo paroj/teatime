@@ -233,7 +233,7 @@ class Controller:
             self.stop()
     
     def set_label_text(self):
-        name = self.timer.obj["name"].encode("utf-8") # FIXME remove conversion to 8bit string
+        name = self.timer.obj["name"]
         
         t = time.gmtime(self.timer.end - time.time())
         f = "%H:%M:%S" if t.tm_hour > 0 else "%M:%S"
