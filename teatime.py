@@ -41,6 +41,9 @@ class Notification(Notify.Notification):
 
 class Timer:
     def __init__(self, obj):
+        if obj["duration"] == 0:
+            raise ValueError
+        
         self.obj = obj
         self.running = False
         self.begin = None
@@ -228,7 +231,10 @@ class Controller:
     
     def on_button_click(self, *a):
         if self.timer is None:
-            self.start()
+            try:
+                self.start()
+            except ValueError: # gets thrown by timer if duration == 0
+                pass
         else:
             self.stop()
     
