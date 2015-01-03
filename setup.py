@@ -4,7 +4,7 @@ from distutils.core import setup
 from DistUtilsExtra.command import *
 
 #DEST="/opt/extras.ubuntu.com/teatime/"
-DEST="share/teatime"
+DEST="share/teatime/"
 
 class my_build_i18n(build_i18n.build_i18n):
     def run(self):
