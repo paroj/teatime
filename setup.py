@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from distutils.core import setup
-from DistUtilsExtra.command import *
+from DistUtilsExtra.command import build_i18n, build_extra
 
 #DEST="/opt/extras.ubuntu.com/teatime/"
 DEST="share/teatime/"
