@@ -85,6 +85,16 @@ class TreeView:
             col.set_cell_data_func(cell, self._data_func, key)
             self._obj.append_column(col)
         
+        # configure search
+        obj.set_search_column(0)
+        obj.set_search_equal_func(self._search_eq_fn)
+    
+    def _search_eq_fn(self, model, col, key, itr):
+        # case insensitive prefix search
+        name = model[itr][col]["name"].lower()
+        # invert result as needed by GTK API
+        return not name.startswith(key.lower())
+       
     def add_addline(self):
         self._model.append({"name": _("New Entry"), "duration":0})
     
