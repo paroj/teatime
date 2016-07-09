@@ -1,0 +1,29 @@
+name: teatime
+version: 16.04
+#confinement: strict # fails automatic build on launchpad
+summary: Simple egg timer application for the Unity Desktop
+description:  A simple egg-timer type application to time your teas. 
+ Rings an alarm and displays an desktop notification, when the tea is ready. 
+ Supports saving several pre-set timers.
+
+apps:
+  teatime:
+    command: desktop-launch $SNAP/usr/share/teatime/teatime.py
+    plugs: [unity7, home, pulseaudio]
+ 
+parts:
+    teatime:
+        plugin: python3
+        source: git://git.launchpad.net/teatime
+        stage-packages:
+            - python3-distutils-extra
+            - sound-theme-freedesktop
+            - pulseaudio-utils
+            - python3-gi
+            - gir1.2-unity-5.0
+            - gir1.2-notify-0.7
+            - gir1.2-gtk-3.0
+            - gir1.2-pango-1.0
+        after: [desktop/gtk3]
+        stage:
+            - -usr/share/pkgconfig # also in desktop/gtk3
