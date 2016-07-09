@@ -4,6 +4,7 @@ import time
 import json
 import locale
 import subprocess
+import os
 
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango, GLib
 
@@ -16,6 +17,10 @@ REMIND_DELTA_SECONDS=30
 
 #DATA = os.path.expanduser("~/workspace/teatime/")
 DATA = "/usr/share/teatime/"
+
+if "SNAP" in os.environ:
+    DATA = os.environ["SNAP"] + DATA
+    SOUND_ALERT_FILE = os.environ["SNAP"] + SOUND_ALERT_FILE
 
 # use locale instead of gettext, so GTK gets the change
 locale.bindtextdomain(GETTEXT_DOMAIN, DATA+"locale/")
