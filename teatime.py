@@ -6,6 +6,10 @@ import locale
 import subprocess
 import os
 
+import gi
+gi.require_version("Unity", "7.0")
+gi.require_version("Gtk", "3.0")
+gi.require_version("Notify", "0.7")
 from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango, GLib
 
 GETTEXT_DOMAIN = "teatime"
