@@ -18,7 +18,7 @@ setup(
       cmdclass = {"build": build_extra.build_extra,
                   "build_i18n": my_build_i18n},
       name = "teatime",
-      version = "14.11",
+      version = "16.07",
       description = "A simple egg timer application for the Unity Desktop",
       author = "Pavel Rojtberg",
       author_email = "pavel@rojtberg.net",

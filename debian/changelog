@@ -1,3 +1,10 @@
+teatime-unity (16.07-1) xenial; urgency=low
+
+  * allow to run as as snap package
+  * fix GIR versioning warnings
+
+ -- Pavel Rojtberg <pavel@rojtberg.net>  Thu, 21 Jul 2016 00:55:25 +0200
+
 teatime-unity (14.11-1) trusty; urgency=low
 
   * port to python3
