@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Tea Time
+GenericName=Timer
+Keywords=egg;
+Exec=${SNAP}/usr/share/teatime/teatime.py
+Path=${SNAP}/usr/share/teatime/
+Icon=${SNAP}/meta/gui/icon.svg
+Terminal=false
+Categories=Utility;GTK;
