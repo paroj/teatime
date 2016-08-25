@@ -324,7 +324,11 @@ class Controller:
             self.le.set_property("urgent", True)
         
         # if true gets called again
-        return p < 1.0
+        if p < 1.0:
+            return True
+        else:
+            self.tick_src = None
+            return False
                
     def end(self, *a):
         self.stop()
