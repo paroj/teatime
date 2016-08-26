@@ -27,3 +27,4 @@ parts:
         after: [desktop/gtk3]
         stage:
             - -usr/share/pkgconfig # also in desktop/gtk3
+            - -usr/share/mime      # also in desktop/gtk3
