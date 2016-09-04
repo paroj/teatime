@@ -260,7 +260,13 @@ class Controller:
     def set_label_text(self):
         name = self.timer.obj["name"]
         
-        t = time.gmtime(self.timer.end - time.time())
+        dt = self.timer.end - time.time()
+
+        if dt <= 0:
+            self.label.set_text(_("%s is ready") % name)
+            return
+
+        t = time.gmtime(dt)
         f = "%H:%M:%S" if t.tm_hour > 0 else "%M:%S"
             
         remaining = time.strftime(f, t)
