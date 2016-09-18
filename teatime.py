@@ -23,7 +23,7 @@ REMIND_DELTA_SECONDS=30
 DATA = "/usr/share/teatime/"
 
 if "SNAP" in os.environ:
-    DATA = os.environ["SNAP"] + DATA
+    DATA = os.environ["SNAP"] + DATA[4:] # $SNAP/share/teatime
     SOUND_ALERT_FILE = os.environ["SNAP"] + SOUND_ALERT_FILE
 
 # use locale instead of gettext, so GTK gets the change

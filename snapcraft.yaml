@@ -1,6 +1,7 @@
 name: teatime
 version: 16.07
-#confinement: strict # fails automatic build on launchpad
+confinement: strict
+grade: stable
 summary: Simple egg timer application for the Unity Desktop
 description:  A simple egg-timer type application to time your teas. 
  Rings an alarm and displays an desktop notification, when the tea is ready. 
@@ -8,7 +9,7 @@ description:  A simple egg-timer type application to time your teas.
 
 apps:
   teatime:
-    command: desktop-launch $SNAP/usr/share/teatime/teatime.py
+    command: desktop-launch $SNAP/share/teatime/teatime.py
     plugs: [unity7, home, pulseaudio]
  
 parts:
