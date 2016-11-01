@@ -14,7 +14,7 @@ apps:
  
 parts:
     teatime:
-        plugin: python3
+        plugin: python
         source: git://git.launchpad.net/teatime
         stage-packages:
             - python3-distutils-extra
