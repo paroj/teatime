@@ -204,7 +204,11 @@ class Controller:
         about = xml.get_object("aboutdialog1")
         xml.get_object("menuitem_about").connect("activate", lambda *args: about.show())
 
-        self.le = Unity.LauncherEntry.get_for_desktop_file("teatime.desktop")
+        desktop_file_name = "teatime.desktop"
+        if "SNAP" in os.environ:
+            desktop_file_name = "teatime_teatime.desktop"
+
+        self.le = Unity.LauncherEntry.get_for_desktop_file(desktop_file_name)
 
         self.label = xml.get_object("label1")
 
