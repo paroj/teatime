@@ -1,5 +1,5 @@
 name: teatime
-version: 16.07
+version: 18.02
 confinement: strict
 grade: stable
 summary: Simple egg timer application for the Unity Desktop

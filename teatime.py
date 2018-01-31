@@ -10,7 +10,7 @@ import gi
 gi.require_version("Unity", "7.0")
 gi.require_version("Gtk", "3.0")
 gi.require_version("Notify", "0.7")
-from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango, GLib
+from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango, GLib, Gio
 
 GETTEXT_DOMAIN = "teatime"
 
@@ -31,7 +31,9 @@ locale.bindtextdomain(GETTEXT_DOMAIN, DATA + "locale/")
 locale.textdomain(GETTEXT_DOMAIN)
 _ = locale.gettext
 
+
 class Notification(Notify.Notification):
+
     def __init__(self):
         Notify.Notification.__init__(self)
         self.set_urgency(Notify.Urgency.LOW)
@@ -48,7 +50,9 @@ class Notification(Notify.Notification):
 
         self.update(_("%s is ready") % timer.obj["name"], body, None)
 
+
 class Timer:
+
     def __init__(self, obj):
         if obj["duration"] == 0:
             raise ValueError
@@ -71,7 +75,9 @@ class Timer:
 
         return progress
 
+
 class TreeView:
+
     def __init__(self, obj, model):
         self._obj = obj
 
@@ -152,6 +158,7 @@ class TreeView:
 
         cell.set_property("text", v)
 
+
 class ListStore:
     FILE = GLib.get_user_data_dir() + "/teatime.js"
 
@@ -187,7 +194,9 @@ class ListStore:
     def append(self, v):
         self._obj.append((v,))
 
+
 class Controller:
+
     def __init__(self):
         self.seen = None
         self.timer = None
@@ -201,14 +210,31 @@ class Controller:
         xml.add_from_file(DATA + "window.ui")
 
         xml.connect_signals({"hide-widget": lambda w, *args: w.hide_on_delete()})
-        about = xml.get_object("aboutdialog1")
-        xml.get_object("menuitem_about").connect("activate", lambda *args: about.show())
 
         desktop_file_name = "teatime.desktop"
         if "SNAP" in os.environ:
             desktop_file_name = "teatime_teatime.desktop"
 
+        self.window = xml.get_object("window1")
+
+        self.app = Gtk.Application(application_id="net.rojtberg.teatime")
+        self.app.connect("startup", self._startup, xml)
+        self.app.connect("activate", lambda *args: self.window.present())
+
         self.le = Unity.LauncherEntry.get_for_desktop_file(desktop_file_name)
+
+    def _startup(self, app, xml):
+        # appmenu
+        app.set_app_menu(xml.get_object("app-menu"))
+
+        action = Gio.SimpleAction.new("about", None)
+        about = xml.get_object("aboutdialog1")
+        action.connect("activate", lambda *args: about.show())
+        app.add_action(action)
+
+        action = Gio.SimpleAction.new("quit", None)
+        action.connect("activate", self.end)
+        app.add_action(action)
 
         self.label = xml.get_object("label1")
 
@@ -220,7 +246,7 @@ class Controller:
         self.list._obj.connect("cursor-changed", self.on_sel_changed)
         self.list.add_addline()
 
-        self.window = xml.get_object("window1")
+        self.window.set_application(app)
         self.window.connect("delete-event", self.end)
         self.window.connect("window-state-event", self.timer_noticed)
         self.window.connect("focus-in-event", self.timer_noticed)
@@ -228,7 +254,6 @@ class Controller:
         self.window.show()
 
         self.notification = Notification()
-        self.main = GObject.MainLoop()
 
     def on_key_press(self, caller, ev):
         key = Gdk.keyval_name(ev.keyval)
@@ -308,7 +333,7 @@ class Controller:
             self.notify_src = None
 
     def run(self):
-        self.main.run()
+        self.app.run()
 
     def show_notification(self):
         if not self.seen:
@@ -343,12 +368,13 @@ class Controller:
     def end(self, *a):
         self.stop()
         self.store.save()
-        self.main.quit()
+        self.app.quit()
 
     def timer_noticed(self, *a):
         if self.timer and not self.timer.running:
             self.seen = True
             self.stop()
+
 
 if __name__ == "__main__":
     c = Controller()

@@ -1,3 +1,9 @@
+teatime-unity (18.02-1) bionic; urgency=low
+
+  * port to Gtk.Application and AppMenu
+
+ -- Pavel Rojtberg <pavel@rojtberg.net>  Thu, 01 Feb 2018 20:29:42 +0100
+
 teatime-unity (16.07-1) xenial; urgency=low
 
   * allow to run as as snap package
