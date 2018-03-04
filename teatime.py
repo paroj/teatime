@@ -212,10 +212,14 @@ class Controller:
         xml.connect_signals({"hide-widget": lambda w, *args: w.hide_on_delete()})
 
         desktop_file_name = "teatime.desktop"
+        self.window = xml.get_object("window1")
+
         if "SNAP" in os.environ:
             desktop_file_name = "teatime_teatime.desktop"
+            icon = os.environ["SNAP"]+"/meta/gui/icon.svg"
+            self.window.set_default_icon_from_file(icon)
+            xml.get_object("aboutdialog1").set_logo(None)
 
-        self.window = xml.get_object("window1")
 
         self.app = Gtk.Application(application_id="net.rojtberg.teatime")
         self.app.connect("startup", self._startup, xml)

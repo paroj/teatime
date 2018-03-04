@@ -27,7 +27,6 @@
     <property name="default_width">400</property>
     <property name="default_height">300</property>
     <property name="hide_titlebar_when_maximized">True</property>
-    <property name="icon">/usr/share/icons/Humanity/actions/48/sleep.svg</property>
     <child>
       <object class="GtkBox" id="vbox1">
         <property name="visible">True</property>
@@ -107,16 +106,14 @@
   <object class="GtkAboutDialog" id="aboutdialog1">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
-    <property name="icon">/usr/share/icons/Humanity/actions/48/sleep.svg</property>
     <property name="type_hint">menu</property>
     <property name="transient_for">window1</property>
     <property name="program_name">Tea Time</property>
-    <property name="version">18.02</property>
-    <property name="comments" translatable="yes">A simple egg timer application for the Unity Desktop</property>
-    <property name="website">https://launchpad.net/teatime</property>
+    <property name="version">18.03</property>
+    <property name="comments" translatable="yes">A simple egg timer application for Unity &amp; Dash to Dock</property>
+    <property name="website">https://github.com/paroj/teatime</property>
     <property name="authors">Pavel Rojtberg</property>
     <property name="translator_credits" translatable="yes">translator-credits</property>
-    <property name="logo">/usr/share/icons/Humanity/actions/48/sleep.svg</property>
     <property name="license_type">gpl-3-0</property>
     <signal name="delete-event" handler="hide-widget" swapped="no"/>
     <signal name="response" handler="hide-widget" swapped="no"/>
