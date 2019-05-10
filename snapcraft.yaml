@@ -12,6 +12,20 @@ apps:
     command: desktop-launch $SNAP/share/teatime/teatime.py
     plugs: [unity7, home, pulseaudio]
 
+plugs:
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/data-dir/themes
+    default-provider: gtk-common-themes
+  icon-themes:
+    interface: content
+    target: $SNAP/data-dir/icons
+    default-provider: gtk-common-themes
+  sound-themes:
+    interface: content
+    target: $SNAP/data-dir/sounds
+    default-provider: gtk-common-themes
+
 slots:
   # for GtkApplication registration
   teatime:
