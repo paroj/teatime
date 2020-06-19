@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-from distutils.core import setup
+from setuptools import setup
 from DistUtilsExtra.command import build_i18n, build_extra
 
 #DEST="/opt/extras.ubuntu.com/teatime/"
-DEST="share/teatime/"
+DEST="bin/"
 
 class my_build_i18n(build_i18n.build_i18n):
     def run(self):

@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2015 Pavel Rojtberg
-# This file is distributed under the same license as the teatime-unity package.
-# Pavel Rojtberg <pavel@rojtberg.net>, 2015.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-21 12:03+0200\n"
+"POT-Creation-Date: 2020-06-19 22:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,58 +17,66 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../teatime.py:40
+#: ../teatime.py:45
 msgid "finished just now"
 msgstr ""
 
-#: ../teatime.py:42
+#: ../teatime.py:47
 #, python-format
 msgid "finished %s seconds ago"
 msgstr ""
 
-#: ../teatime.py:44
+#: ../teatime.py:49
 #, python-format
 msgid "finished %s minutes ago"
 msgstr ""
 
-#: ../teatime.py:46
+#: ../teatime.py:51 ../teatime.py:299
 #, python-format
 msgid "%s is ready"
 msgstr ""
 
-#: ../teatime.py:75
+#: ../teatime.py:87
 msgid "Name"
 msgstr ""
 
-#: ../teatime.py:75
+#: ../teatime.py:87
 msgid "Duration"
 msgstr ""
 
-#: ../teatime.py:92
+#: ../teatime.py:114
 msgid "New Entry"
 msgstr ""
 
-#: ../teatime.py:248
+#: ../teatime.py:306
 #, python-format
 msgid "%s: %s remaining"
 msgstr ""
 
-#: ../teatime.py:258
+#: ../teatime.py:316
 msgid "Stop Timer"
 msgstr ""
 
-#: ../teatime.py:268 ../window.ui.h:4
+#: ../teatime.py:326 ../window.ui.h:4
 msgid "Start Timer"
 msgstr ""
 
-#: ../teatime.py:271 ../window.ui.h:3
+#: ../teatime.py:329 ../window.ui.h:3
 msgid "No Running Timers"
 msgstr ""
 
 #: ../window.ui.h:1
-msgid "A simple egg timer application for the Unity Desktop"
+msgid "_About"
 msgstr ""
 
 #: ../window.ui.h:2
+msgid "_Quit"
+msgstr ""
+
+#: ../window.ui.h:5
+msgid "A simple egg timer application for Unity & Dash to Dock"
+msgstr ""
+
+#: ../window.ui.h:6
 msgid "translator-credits"
 msgstr ""

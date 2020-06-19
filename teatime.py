@@ -20,11 +20,11 @@ SOUND_ALERT_FILE = "/usr/share/sounds/freedesktop/stereo/complete.oga"
 REMIND_DELTA_SECONDS = 30
 
 # DATA = os.path.expanduser("~/workspace/teatime/")
-DATA = "/usr/share/teatime/"
+DATA = "/usr/bin/"
 
 if "SNAP" in os.environ:
-    DATA = os.environ["SNAP"] + DATA[4:]  # $SNAP/share/teatime
-    SOUND_ALERT_FILE = os.environ["SNAP"] + SOUND_ALERT_FILE
+    DATA = os.environ["SNAP"] + DATA[4:]  # $SNAP/bin/
+    SOUND_ALERT_FILE = os.environ["SNAP"] + "/gnome-platform" + SOUND_ALERT_FILE
 
 # use locale instead of gettext, so GTK gets the change
 locale.bindtextdomain(GETTEXT_DOMAIN, DATA + "locale/")
