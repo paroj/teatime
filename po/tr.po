@@ -8,74 +8,77 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 22:50+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-01-27 23:32+0000\n"
+"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/tea-time/main/tr/"
+">\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ../teatime.py:45
 msgid "finished just now"
-msgstr ""
+msgstr "şimdi bitti"
 
 #: ../teatime.py:47
 #, python-format
 msgid "finished %s seconds ago"
-msgstr ""
+msgstr "%s saniye önce bitti"
 
 #: ../teatime.py:49
 #, python-format
 msgid "finished %s minutes ago"
-msgstr ""
+msgstr "%s dakika önce bitti"
 
 #: ../teatime.py:51 ../teatime.py:299
 #, python-format
 msgid "%s is ready"
-msgstr ""
+msgstr "%s hazır"
 
 #: ../teatime.py:87
 msgid "Name"
-msgstr ""
+msgstr "Ad"
 
 #: ../teatime.py:87
 msgid "Duration"
-msgstr ""
+msgstr "Süre"
 
 #: ../teatime.py:114
 msgid "New Entry"
-msgstr ""
+msgstr "Yeni Girdi"
 
 #: ../teatime.py:306
 #, python-format
 msgid "%s: %s remaining"
-msgstr ""
+msgstr "%s: %s kaldı"
 
 #: ../teatime.py:316
 msgid "Stop Timer"
-msgstr ""
+msgstr "Zamanlayıcıyı Durdur"
 
 #: ../teatime.py:326 ../window.ui.h:4
 msgid "Start Timer"
-msgstr ""
+msgstr "Zamanlayıcıyı Başlat"
 
 #: ../teatime.py:329 ../window.ui.h:3
 msgid "No Running Timers"
-msgstr ""
+msgstr "Çalışan Zamanlayıcı Yok"
 
 #: ../window.ui.h:1
 msgid "_About"
-msgstr ""
+msgstr "_Hakkında"
 
 #: ../window.ui.h:2
 msgid "_Quit"
-msgstr ""
+msgstr "_Çıkış"
 
 #: ../window.ui.h:5
 msgid "A simple egg timer application for Unity & Dash to Dock"
-msgstr ""
+msgstr "Unity & Dash to Dock için basit bir yumurta zamanlayıcı uygulaması"
 
 #: ../window.ui.h:6
 msgid "translator-credits"
-msgstr ""
+msgstr "Oğuz Ersen"
