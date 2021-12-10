@@ -9,4 +9,4 @@ A simple egg-timer type application to time your teas. Rings an alarm and displa
 
 ## Translating
 
-You can help [translating Teatime to your language at POeditor](https://poeditor.com/join/project/JrsGW0YrJT).
+You can [help translating Teatime to your language at weblate](https://hosted.weblate.org/projects/tea-time/main/).
