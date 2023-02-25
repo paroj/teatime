@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 22:50+0200\n"
-"PO-Revision-Date: 2023-02-20 06:46+0000\n"
+"PO-Revision-Date: 2023-02-26 11:39+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/paroj/teatime/"
 "pt/>\n"
@@ -69,11 +69,11 @@ msgstr "Sem temporizadores ativos"
 
 #: ../window.ui.h:1
 msgid "_About"
-msgstr ""
+msgstr "_Sobre"
 
 #: ../window.ui.h:2
 msgid "_Quit"
-msgstr ""
+msgstr "_Sair"
 
 #: ../window.ui.h:5
 msgid "A simple egg timer application for Unity & Dash to Dock"
