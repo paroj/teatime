@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 22:50+0200\n"
-"PO-Revision-Date: 2023-02-26 11:39+0000\n"
+"PO-Revision-Date: 2023-06-28 20:48+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/paroj/teatime/"
 "pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: ../teatime.py:45
 msgid "finished just now"
@@ -77,7 +77,7 @@ msgstr "_Sair"
 
 #: ../window.ui.h:5
 msgid "A simple egg timer application for Unity & Dash to Dock"
-msgstr ""
+msgstr "Uma aplicação simples de temporizador de ovos para Unity e Dash to Dock"
 
 #: ../window.ui.h:6
 msgid "translator-credits"
