@@ -109,7 +109,7 @@
     <property name="type_hint">menu</property>
     <property name="transient_for">window1</property>
     <property name="program_name">Tea Time</property>
-    <property name="version">20.06</property>
+    <property name="version">24.05</property>
     <property name="comments" translatable="yes">A simple egg timer application for Unity &amp; Dash to Dock</property>
     <property name="website">https://github.com/paroj/teatime</property>
     <property name="authors">Pavel Rojtberg</property>
