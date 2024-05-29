@@ -10,7 +10,7 @@ import gi
 gi.require_version("Unity", "7.0")
 gi.require_version("Gtk", "3.0")
 gi.require_version("Notify", "0.7")
-from gi.repository import Unity, GObject, Gtk, Notify, Gdk, Pango, GLib, Gio
+from gi.repository import Unity, Gtk, Notify, Gdk, Pango, GLib, Gio
 
 GETTEXT_DOMAIN = "teatime"
 
@@ -308,7 +308,7 @@ class Controller:
     def start(self):
         self.timer = Timer(self.store[self.sel])
         self.timer.start()
-        self.tick_src = GObject.timeout_add_seconds(1, self.do_tick)
+        self.tick_src = GLib.timeout_add_seconds(1, self.do_tick)
 
         self.le.set_property("progress_visible", True)
         self.le.set_property("progress", 0)
@@ -329,11 +329,11 @@ class Controller:
         self.label.set_text(_("No Running Timers"))
 
         if self.tick_src is not None:
-            GObject.source_remove(self.tick_src)
+            GLib.source_remove(self.tick_src)
             self.tick_src = None
 
         if self.notify_src is not None:
-            GObject.source_remove(self.notify_src)
+            GLib.source_remove(self.notify_src)
             self.notify_src = None
 
     def run(self):
@@ -350,7 +350,7 @@ class Controller:
     def start_notification_loop(self):
         self.seen = False
         self.show_notification()
-        self.notify_src = GObject.timeout_add_seconds(REMIND_DELTA_SECONDS, self.show_notification)
+        self.notify_src = GLib.timeout_add_seconds(REMIND_DELTA_SECONDS, self.show_notification)
 
     def do_tick(self):
         p = self.timer.get_progress()
