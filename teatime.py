@@ -24,7 +24,7 @@ DATA = "/usr/bin/"
 
 if "SNAP" in os.environ:
     DATA = os.environ["SNAP"] + DATA[4:]  # $SNAP/bin/
-    SOUND_ALERT_FILE = os.environ["SNAP"] + "/gnome-platform" + SOUND_ALERT_FILE
+    SOUND_ALERT_FILE = os.environ["SNAP"] + "/data-dir/sounds/freedesktop/stereo/complete.oga"
 
 # use locale instead of gettext, so GTK gets the change
 locale.bindtextdomain(GETTEXT_DOMAIN, DATA + "locale/")
@@ -343,7 +343,7 @@ class Controller:
         if not self.seen:
             self.notification.set_info(self.timer)
             self.notification.show()
-            subprocess.Popen(["paplay", SOUND_ALERT_FILE])
+            subprocess.Popen(["canberra-gtk-play", "-f", SOUND_ALERT_FILE])
 
         return not self.seen
 
