@@ -8,14 +8,17 @@ msgstr ""
 "Project-Id-Version: teatime\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-06-21 12:03+0200\n"
-"PO-Revision-Date: 2012-04-25 18:12+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: Finnish <fi@li.org>\n"
+"PO-Revision-Date: 2024-11-29 13:00+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/paroj/teatime/fi/"
+">\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.9-dev\n"
 "X-Launchpad-Export-Date: 2015-07-26 05:22+0000\n"
-"X-Generator: Launchpad (build 17628)\n"
 
 #: ../teatime.py:40
 msgid "finished just now"
@@ -67,7 +70,7 @@ msgstr "Ei ajastimia käynnissä"
 
 #: ../window.ui.h:1
 msgid "A simple egg timer application for the Unity Desktop"
-msgstr ""
+msgstr "Yksinkertainen munaajastinsovellus Unity Desktopille"
 
 #: ../window.ui.h:2
 msgid "translator-credits"
