@@ -73,7 +73,7 @@ msgstr "_About"
 
 #: ../window.ui.h:2
 msgid "_Quit"
-msgstr ""
+msgstr "_Quit"
 
 #: ../window.ui.h:5
 msgid "A simple egg timer application for Unity & Dash to Dock"
